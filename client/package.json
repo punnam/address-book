@@ -1,0 +1,26 @@
+{
+  "name": "address-book-client",
+  "version": "1.0.0",
+  "description": "angularjs powered client for the address-book programming exercies",
+  "private": true,
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "grunt server",
+    "build": "grunt build"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-bower-concat": "^0.5.0",
+    "grunt-connect-proxy": "^0.2.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^0.10.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

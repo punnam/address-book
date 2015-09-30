@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="addressBook">
+
+<head>
+    <meta charset="utf-8">
+    <title>Address Book Mockup</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
+    <script src="js/lib.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/templates.js"></script>
+</head>
+
+<body ng-controller="indexCtrl">
+    <div class="app-address-book">
+        <!-- LEFT COLUMN -->
+        <div class="app-directory-container">
+            <!-- DIRECTORY COMPONENT -->
+            <div class="app-directory" ng-repeat="values in InitalsAndvalues | orderBy: 'key'">
+                <div class="app-directory-separator">{{values.key}}</div>
+                <div class="app-directory-item" ng-repeat="idAndName in values.values" ng-click="personDataClick(idAndName.id);">
+                    {{idAndName.name}}
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="app-person-profile-container">
+            <!-- PERSON PROFILE COMPONENT -->
+            <div class="app-person-profile docs-highlight docs-blue" data-intro="Person Profile" data-position="bottom">
+                <!-- PERSON PROFILE HEADER -->
+                <div class="app-person-profile-header">
+                    <!-- PHOTO -->
+                    <div class="app-person-profile-photo" style="background-image: url(images/avatar.png)"></div>
+
+                    <h2>{{personData.name}}</h2>
+                    <div class="app-person-profile-department">
+                        {{personData.title}}
+                    </div>
+                    <div class="app-person-profile-phone-number">
+                        {{personData.phone}}
+                    </div>
+                    <div class="app-person-profile-phone-number">
+                        <a href="mailto:adam.wright@mycompany.com">{{personData.email}}</a>
+                    </div>
+                </div>
+
+                <!-- EDUCATION SECTION -->
+                <div class="app-section">
+                    <div class="app-section-header">
+                        <h3>Education</h3>
+                    </div>
+                    <div class="app-section-body" >
+                        <div class="app-history-item" ng-repeat="education in personData.education">
+                            <div class="app-history-item-dates">
+                                {{education.startYear}}-{{education.endYear}}
+                            </div>
+                            <div class="app-history-item-body">
+                                <div class="app-history-item-title">{{education.institution}}</div>
+                                {{education.degree}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WORK HISTORY SECTION -->
+                <div class="app-section">
+                    <div class="app-section-header">
+                        <h3>Experience</h3>
+                    </div>
+                    <div class="app-section-body">
+                        <div class="app-history-item" ng-repeat="workExperience in personData.workExperience">
+                            <div class="app-history-item-dates"> 
+                                 {{workExperience.startYear}}-{{workExperience.endYear}}
+                            </div>
+                            <div class="app-history-item-body">
+                                <div class="app-history-item-title">{{workExperience.institution}}</div>
+                                {{workExperience.title}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+</body>
+</html>
